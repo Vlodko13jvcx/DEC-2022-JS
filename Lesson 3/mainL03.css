@@ -1,0 +1,20 @@
+.body-product {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-card {
+    align-items: center;
+    justify-content: center;
+}
+
+.product-title {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.product-image {
+    width: 250px;
+}
