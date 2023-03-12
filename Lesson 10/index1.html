@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HW JS Lesson 10</title>
+    <style>
+        .form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            border: blue 2px solid;
+        }
+
+        .wrapper {
+            width: 250px;
+            padding: 10px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .item {
+            margin-top: 10px;
+            border: red 2px solid;
+        }
+    </style>
+</head>
+<body>
+<form name="person" class="form wrapper">
+    <label class="flex">Name: <input type="text" name="userName"></label>
+    <label class="flex">Surname: <input type="text" name="surName"></label>
+    <label class="flex">Age: <input type="number" name="age"></label>
+    <button>send</button>
+</form>
+<div id="target"></div>
+<script>
+    // Стоврити форму з трьома полями для name,sruname,age та кнопкою. При натисканні на кнопку зчитати данні з полів,
+    // та вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
+    const form = document.forms.person;
+
+    form.onsubmit = function (eo) {
+        eo.preventDefault();
+        const wrapper = document.createElement('div');
+        const name = document.createElement('div');
+        const surname = document.createElement('div');
+        const age = document.createElement('div');
+
+        name.innerText = `Name: ${this.userName.value}`;
+        surname.innerText = `Surname: ${this.surName.value}`;
+        age.innerText = `Age: ${this.age.value}`;
+
+        wrapper.classList.add('wrapper', 'item');
+
+        wrapper.append(name, surname, age);
+        document.body.appendChild(wrapper);
+
+    };
+    // let userNameInput = form.userName;
+    // userNameInput.addEventListener(
+    //     'input',
+    //     function (eo) {
+    //         console.log(userNameInput.value);
+    //         target.innerHTML = userNameInput.value;
+    //     });
+</script>
+
+</body>
+</html>
